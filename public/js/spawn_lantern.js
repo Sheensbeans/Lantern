@@ -9,7 +9,7 @@ AFRAME.registerComponent('spawn_lantern', {
     Context_AF.lantern_button = document.querySelector('#lantern_button');
 
     Context_AF.el.addEventListener('click', function() {
-      // Create a new cylinder entity
+      // Create a the lantern entity
       const lantern = document.createElement('a-entity');
       lantern.setAttribute('class', 'lantern');
       lantern.setAttribute('geometry', {
@@ -22,9 +22,9 @@ AFRAME.registerComponent('spawn_lantern', {
         opacity: 0.8,
         transparent: true
       });
-
+// have the lantern parent to the camera
       Context_AF.el.sceneEl.appendChild(lantern);
-
+//lantern turns white when hover
         lantern.addEventListener('mouseenter', function() {
       lantern.setAttribute('material', {
         color: '#ffffff',
@@ -39,7 +39,7 @@ AFRAME.registerComponent('spawn_lantern', {
         transparent: true
       });
     });
-
+//Have the lantern spawn at random places with x,y,z, constrained to the area of the "room"
       var minX = -6; // Minimum x-coordinate
       var maxX = 6;  // Maximum x-coordinate
       var minY = .5;  // Minimum y-coordinate
@@ -52,14 +52,14 @@ AFRAME.registerComponent('spawn_lantern', {
       var randomY = Math.random() * (maxY - minY) + minY;
       var randomZ = Math.random() * (maxZ - minZ) + minZ;
       lantern.setAttribute('position', `${randomX} ${randomY} ${randomZ}`)// Initial position
-
+//when mouse click on lantern, it destroys it.
     lantern.addEventListener('click', function () {
       lantern.parentNode.removeChild(lantern); // Remove the lantern when clicked
     });
   });
 }
 });
-
+//To move the lantern upwards using tick.
 AFRAME.registerComponent('move-lanterns', {
   schema: {
     speed: { type: 'number', default: 0.001 } // change the speed

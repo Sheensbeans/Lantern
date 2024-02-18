@@ -13,17 +13,20 @@
       <a-scene>
        
         <a-assets timeout="10000">
-          <!-- music from youtube audio library -  -->
+          <!-- music from youtube audio library TopTen by Jeremy Blake-  -->
         <audio id="music" src="/assets/Music.mp3" preload="auto" crossorigin="anonymous"></audio>
         
-        </a-assets>
-
+        </a-assets><!--camera --> 
         <a-entity camera wasd-controls look-controls position="0 2 4">
+          <!--cursor that connects to clicking the lantern and button --> 
           <a-entity cursor="rayOrigin:mouse;" raycaster="far:20; interval:200; objects:.interactive, .lantern " geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"></a-entity> 
+        <!--light that comes from camera --> 
           <a-entity light="type:spot; intensity:; castShadow:true; shadowBias:-0.0005; angle:40; penumbra:0.3;" position="0 -0.5 0" rotation="0 0 0"></a-entity>
           </a-entity>
         </a-entity>
+
         <a-entity sound="src:#music; autoplay:true;"></a-entity>
+        <!-- what the yellow button looks like --> 
         <a-entity id="lantern_button" spawn_lantern, move-lanterns>
           <a-entity class="button interactive" spawn_lantern="duration:18000;"position="0 0.6 0.25" geometry="primitive:cylinder; radius:0.15; height:0.2;" material="color:#ffc505"
                     animation__mouseenter="property:material.color; type:color; to:#ffd754; startEvents:mouseenter; dur:200"
@@ -33,6 +36,7 @@
                     <a-entity position="0 0.3 0.25" geometry="primitive:box; width:0.5; depth:0.5; height:0.6;" material="color:rgb(255, 255, 255)" shadow></a-entity> 
                     <a-entity text="value: Create Lantern; color:black; font:roboto; width:.7; anchor:left; baseline:top; wrapCount:11;" position="-.2.5 0.5 0.6" ></a-entity>
         </a-entity>
+        <!-- instructions panel --> 
         <a-entity position="-0.992 0.290 0.250" rotation="-8.912 4.588 -0.712"  scale="2.351 1.000 0.231" geometry="primitive:box; width:0.5; depth:0.5; height:0.6;" material="color:rgb(255, 255, 255)" shadow></a-entity> 
         <a-entity text="value:Destroy all the lanterns before they pass the boarder and float away!; color:black; font:roboto; width:1; anchor:left; baseline:top; wrapCount:18;"position="-1.496 0.504 0.371" rotation="-8.912 4.588 -0.712"></a-entity>
 
@@ -43,17 +47,17 @@
               <a-entity class="Skyboarder"    geometry="primitive:plane; width:13.8; height:3;" material="color:white"  position="-6.9 21 0" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
               <a-entity class="Skyboarder"    geometry="primitive:plane; width:13.8; height:3;" material="color:white" position="0 21 6.9"  rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
               <a-entity class="Skyboarder"    geometry="primitive:plane; width:13.8; height:3;" material="color:white" position="0 21 -6.9" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
-
+              <!--top wall --> 
             <a-entity class="wall"    geometry="primitive:plane; width:13.8; height:3;" material="color:black;"  position="6.9 8 0" rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="wall"    geometry="primitive:plane; width:13.8; height:3;" material="color:black"  position="-6.9 8 0" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="wall"    geometry="primitive:plane; width:13.8; height:3;" material="color:black" position="0 8 6.9"  rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="wall"    geometry="primitive:plane; width:13.8; height:3;" material="color:black" position="0 8 -6.9" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
-
+              <!--bottom edge --> 
             <a-entity class="wall"    geometry="primitive:plane; width:14; height:0.5;" material="color:black" position="7 0.25 0"  rotation="0 -90 0" shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="wall"    geometry="primitive:plane; width:14; height:0.5;" material="color:black" position="-7 0.25 0" rotation="0 90 0" shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="wall"    geometry="primitive:plane; width:14; height:0.5;" material="color:black" position="0 0.25 7"  rotation="0 180 0" shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="wall"    geometry="primitive:plane; width:14; height:0.5;" material="color:black" position="0 0.25 -7" rotation="0 0 0" shadow="cast:false; receive:true;"></a-entity>
-
+                <!--glass --> 
             <a-entity class="glass"    geometry="primitive:plane; width:14; height:7;"  position="7 4 0"  rotation="0 -90 0" material="opacity: 0.2; transparent: true; metalness: .8;"shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="glass"    geometry="primitive:plane; width:14; height:7;"  position="-7 4 0" rotation="0 90 0" material="opacity: 0.2; transparent: true; metalness: .8;"shadow="cast:false; receive:true;"></a-entity>
             <a-entity class="glass"    geometry="primitive:plane; width:14; height:7;" position="0 4 7"  rotation="0 180 0" material="opacity: 0.2; transparent: true; metalness: .8;"shadow="cast:false; receive:true;"></a-entity>
